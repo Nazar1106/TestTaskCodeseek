@@ -1,0 +1,159 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-team-table
+      author: Nazar Kupnovytskyi
+      changes:
+        - createTable:
+            tableName: team
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: DOUBLE
+                  constraints:
+                    nullable: true
+              - column:
+                  name: commission_rate
+                  type: DOUBLE
+                  constraints:
+                    nullable: true
+        - addUniqueConstraint:
+            tableName: team
+            columnNames: name
+            constraintName: unique_team_name
+
+  - changeSet:
+      id: insert-test-data-into-team
+      author: Nazar Kupnovytskyi
+      changes:
+        - insert:
+            tableName: team
+            columns:
+              - column:
+                  name: name
+                  value: 'Manchester United'
+              - column:
+                  name: balance
+                  value: '12500000.50'
+              - column:
+                  name: commission_rate
+                  value: '0.15'
+        - insert:
+            tableName: team
+            columns:
+              - column:
+                  name: name
+                  value: 'Real Madrid'
+              - column:
+                  name: balance
+                  value: '14500000.75'
+              - column:
+                  name: commission_rate
+                  value: '0.18'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'FC Barcelona'
+                - column:
+                    name: balance
+                    value: '13000000.30'
+                - column:
+                    name: commission_rate
+                    value: '0.17'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'Bayern Munich'
+                - column:
+                    name: balance
+                    value: '11000000.00'
+                - column:
+                    name: commission_rate
+                    value: '0.14'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'Juventus'
+                - column:
+                    name: balance
+                    value: '9500000.25'
+                - column:
+                    name: commission_rate
+                    value: '0.12'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'Paris Saint-Germain'
+                - column:
+                    name: balance
+                    value: '12000000.10'
+                - column:
+                    name: commission_rate
+                    value: '0.16'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'Chelsea'
+                - column:
+                    name: balance
+                    value: '10500000.80'
+                - column:
+                    name: commission_rate
+                    value: '0.13'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'Liverpool'
+                - column:
+                    name: balance
+                    value: '9800000.60'
+                - column:
+                        name: commission_rate
+                        value: '0.12'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'AC Milan'
+                - column:
+                    name: balance
+                    value: '8700000.40'
+                - column:
+                    name: commission_rate
+                    value: '0.11'
+        - insert:
+              tableName: team
+              columns:
+                - column:
+                    name: name
+                    value: 'Borussia Dortmund'
+                - column:
+                    name: balance
+                    value: '9000000.70'
+                - column:
+                    name: commission_rate
+                    value: '0.10'
